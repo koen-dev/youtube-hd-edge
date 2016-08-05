@@ -1,0 +1,45 @@
+{
+  "name": "YouTube HD Edge",
+  "description": "This extension allow you to set the default setting of your YouTube player.",
+  "author": "Koen Hendriks",
+  "homepage_url": "http://expandyourworld.nl",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": [ "*://*.youtube.com/*" ],
+      "js": [
+        "thirdparty/jquery-1.12.3.min.js",
+        "utils.js",
+        "inject.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "background":{
+    "page": "Background.html",
+    "persistent": true
+  },
+  "icons": {
+    "256": "images/icon.png",
+    "128": "images/icon.png",
+    "48": "images/icon.png",
+    "19": "images/icon.png"
+  },
+  "browser_action": {
+    "default_title": "YouTube HD Edge Settings",
+    "default_icon": {
+      "38": "images/icon.png"
+    },
+    "default_popup": "settings/settings.html"
+  },
+  "permissions": [
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ],
+  "options_page": "settings/settings.html"
+}
